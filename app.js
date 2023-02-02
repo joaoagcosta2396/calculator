@@ -1,6 +1,8 @@
 let operator = '';
+let store_op = '';
 let currentValue = '';
 let previousValue = '';
+let storedValue = '';
 
 document.addEventListener("DOMContentLoaded", function(){
     let clear = document.querySelector(".clear");
@@ -10,15 +12,61 @@ document.addEventListener("DOMContentLoaded", function(){
     let numbers = document.querySelectorAll(".number");
     let operators = document.querySelectorAll(".operator");
 
-    let previousScreen = document.querySelector(".previousScreen");
-    let currentScreen = document.querySelector(".currentScreen")
+    let displayResult = document.querySelector("#display");
+    
 
    
     numbers.forEach((number) => number.addEventListener('click', function(e){
         currentValue += e.target.textContent;
-        currentScreen.textContent = currentValue;
+        displayResult.textContent = currentValue;
+        
+      
+        
     }))
+
+
+    operators.forEach((operator) => operator.addEventListener('click', function(e){
+        operator = e.target.textContent;
+
+        // store current Value
+
+        if(storedValue != ''){
+            storedValue = Number(storedValue);
+            currentValue = Number(currentValue);
+            store_op = operator;
+            displayResult.textContent = operate(store_op, storedValue, currentValue).toString();
+        }else{
+            previousValue = currentValue;
+            store_op = operator;
+            currentValue = '';
+        }
+
     
+        
+    
+    }))
+
+
+    equal.addEventListener('click', function(){
+
+        
+        previousValue = Number(previousValue);
+        currentValue = Number(currentValue);
+        console.log (previousValue, store_op, currentValue);
+        console.log(operate(store_op,previousValue, currentValue));
+    
+        displayResult.textContent = operate(store_op, previousValue, currentValue).toString();
+        previousValue = operate(store_op,previousValue, currentValue);
+        console.log(previousValue);
+    })
+    
+
+    clear.addEventListener('click', function(){
+        previousValue = '';
+        currentValue = '';
+        displayResult.textContent = currentValue;
+       
+    })
     
     
 })

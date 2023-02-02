@@ -6,32 +6,11 @@ const previousDisplay = document.querySelector(".previousDisplay");
 const currentDisplay = document.querySelector(".currentDisplay");
 
 
-<<<<<<< HEAD
-=======
-    operators.forEach((operator) => operator.addEventListener('click', function(e){
-        operator = e.target.textContent;
-
-        // store current Value
-        // check first if there is any valued stored in memory
-        if(storedValue != ''){
-            storedValue = Number(storedValue);
-            store_op = operator;
-            displayResult.textContent = operate(store_op, storedValue, storedValue).toString();
-        }else{
-            previousValue = currentValue;
-            store_op = operator;
-            currentValue = '';
-        }
-
-    
-    }))
->>>>>>> a514a3464ed67ffa699b3dea42eecd5267e8905c
 
 
 const operators = document.querySelectorAll(".operator");
 const numbers = document.querySelectorAll(".number");
 
-<<<<<<< HEAD
 const equal = document.querySelector(".equal");
 equal.addEventListener("click", () => {
     if(currentNum != '' && previousNum != ''){
@@ -43,34 +22,6 @@ equal.addEventListener("click", () => {
 const decimal = document.querySelector(".decimal");
 decimal.addEventListener('click', () => {
     addDecimal();
-=======
-        //display result after hitting equals button and store the end result
-        previousValue = Number(previousValue);
-        currentValue = Number(currentValue);
-        console.log (previousValue, store_op, currentValue);
-        console.log(operate(store_op,previousValue, currentValue));
-    
-        displayResult.textContent = operate(store_op, previousValue, currentValue).toString();
-        storedValue = operate(store_op,previousValue, currentValue);
-        console.log("On storage: ", storedValue);
-        previousValue = previousValue.toString();
-        currentValue = currentValue.toString();
-        previousValue = '';
-        currentValue = '';
-        
-    })
-    
-
-    clear.addEventListener('click', function(){
-        previousValue = '';
-        currentValue = '';
-        storedValue = '';
-        displayResult.textContent = currentValue;
-       
-    })
-    
-    
->>>>>>> a514a3464ed67ffa699b3dea42eecd5267e8905c
 })
 
 const clear = document.querySelector(".clear");

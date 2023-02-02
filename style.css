@@ -26,6 +26,7 @@ body{
     margin: 50px;
     text-align: right;
     font-size: 40px;
+<<<<<<< HEAD
     align-items: center;
     border-radius: 10px;
    
@@ -50,6 +51,11 @@ body{
 
 }
 
+=======
+    
+}
+
+>>>>>>> a514a3464ed67ffa699b3dea42eecd5267e8905c
 
 .row{
     display: flex;

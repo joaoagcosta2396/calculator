@@ -1,3 +1,4 @@
+let operator = '';
 let currentValue = '';
 let previousValue = '';
 
@@ -12,17 +13,17 @@ document.addEventListener("DOMContentLoaded", function(){
     let previousScreen = document.querySelector(".previousScreen");
     let currentScreen = document.querySelector(".currentScreen")
 
-    numbers.forEach(function(e){
-        e.addEventListener("click", function(){
-            currentNumber = numbers;
-            currentScreen.textContent = currentNumber;
-        })
-    })
-
+   
+    numbers.forEach((number) => number.addEventListener('click', function(e){
+        currentValue += e.target.textContent;
+        currentScreen.textContent = currentValue;
+    }))
     
     
     
 })
+
+
 
 
 

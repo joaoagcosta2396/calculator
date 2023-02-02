@@ -29,12 +29,11 @@ document.addEventListener("DOMContentLoaded", function(){
         operator = e.target.textContent;
 
         // store current Value
-
+        // check first if there is any valued stored in memory
         if(storedValue != ''){
             storedValue = Number(storedValue);
-            currentValue = Number(currentValue);
             store_op = operator;
-            displayResult.textContent = operate(store_op, storedValue, currentValue).toString();
+            displayResult.textContent = operate(store_op, storedValue, storedValue).toString();
         }else{
             previousValue = currentValue;
             store_op = operator;
@@ -42,28 +41,32 @@ document.addEventListener("DOMContentLoaded", function(){
         }
 
     
-        
-    
     }))
 
 
     equal.addEventListener('click', function(){
 
-        
+        //display result after hitting equals button and store the end result
         previousValue = Number(previousValue);
         currentValue = Number(currentValue);
         console.log (previousValue, store_op, currentValue);
         console.log(operate(store_op,previousValue, currentValue));
     
         displayResult.textContent = operate(store_op, previousValue, currentValue).toString();
-        previousValue = operate(store_op,previousValue, currentValue);
-        console.log(previousValue);
+        storedValue = operate(store_op,previousValue, currentValue);
+        console.log("On storage: ", storedValue);
+        previousValue = previousValue.toString();
+        currentValue = currentValue.toString();
+        previousValue = '';
+        currentValue = '';
+        
     })
     
 
     clear.addEventListener('click', function(){
         previousValue = '';
         currentValue = '';
+        storedValue = '';
         displayResult.textContent = currentValue;
        
     })
